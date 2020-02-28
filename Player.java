@@ -3,6 +3,9 @@ import java.util.ArrayList;
 /**
  * One player in the game
  * Has a deck which cards can be added to or played from
+ * 
+ * @author Sammy Taubman
+ * @version 2/24/20
  */ 
 
 class Player{
@@ -30,7 +33,7 @@ class Player{
   
   /**
    * Remove and return the top card of the deck (index 0)
-   * @returns The card which was played
+   * @return The card which was played
    */
   public Card play() {
     Card cardToRemove = deck.get(0);
@@ -43,14 +46,22 @@ class Player{
    * @param deck The cards being added to the deck
    */ 
   public void addCards(Deck deck) {
-    for (Card c : deck) {
+    for (Card c : deck.cards()) {
       this.deck.add(c);
     }
   }
   
   /**
+   * Add a specific card to the bottom of the players deck
+   * @param card The card being added to the deck
+   */ 
+  public void addCard(Card card) {
+    deck.add(card);
+  }
+  
+  /**
    * Accessor method for number of cards in deck
-   * @returns number of cards left in the player's deck
+   * @return number of cards left in the player's deck
    */ 
   public int cardsLeft() {
     return deck.size();
@@ -64,7 +75,7 @@ class Player{
     return playKey;
   }
   
-    /**
+   /**
    * Accessor method for the player's ca;; key
    * @return The player's call key
    */
@@ -72,6 +83,9 @@ class Player{
     return callKey;
   }
   
+  /**
+   * Returns name of player
+   */ 
   public String toString() {
     return name;
   }
